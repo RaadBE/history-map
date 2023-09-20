@@ -1,0 +1,36 @@
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #F6FFDBFF;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.nav-bar ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 66%;
+}
+
+.nav-bar a {
+    color: #223E5A;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.nav-bar div {
+    color: #223E5A;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}

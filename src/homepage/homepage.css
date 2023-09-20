@@ -1,0 +1,41 @@
+.containerr{
+    display: flex;
+    background-color: #F6FFDBFF;
+    max-width: 90%;
+    margin: 0 auto;
+
+}
+.just{
+    background-image: url('./imgs/glob.png');
+    background-repeat: no-repeat;
+    width: 52%;
+    background-position: right;
+    height: 703px;
+}
+.containerr h1 {
+    font-size: 100px;
+}
+.containerr button {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 32px;
+    font-family: "Liberation Sans Narrow";
+    font-style: normal;
+    background: #223E5A;
+    color: #FDFBFB;
+}
+.text-mid {
+    width: 50%;
+    text-align: left;
+}
+.text-mid p{
+    color: #223E5A;
+    font-family: Open Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+.text-mid  p:nth-child(1){
+    display: inline;
+}
