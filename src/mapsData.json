@@ -1,0 +1,262 @@
+[
+  {
+    "name": "Pyramids of Giza",
+    "location": {
+      "latitude": 29.9792,
+      "longitude": 31.1342
+    },
+    "description": "The last of the original Seven Wonders of the World.",
+    "image": "path_to_images/pyramids.jpg",
+    "fact": "The Great Pyramid of Giza, the largest of the three, was originally 481 feet tall. However, due to centuries of erosion and the removal of the outer casing stones, it's now slightly shorter."
+  },
+  {
+    "name": "Great Wall of China",
+    "location": {
+      "latitude": 40.4319,
+      "longitude": 116.5704
+    },
+    "description": "A series of fortifications made of stone, brick, and other materials.",
+    "image": "path_to_images/great_wall.jpg",
+    "fact": "While often considered a single 'wall', it's actually made up of multiple walls and fortifications. Some sections date back as far as the 7th century BC."
+  },
+  {
+    "name": "Stonehenge",
+    "location": {
+      "latitude": 51.1789,
+      "longitude": 1.8262
+    },
+    "description": "A prehistoric monument in Wiltshire, England.",
+    "image": "path_to_images/stonehenge.jpg",
+    "fact": "Many people think of Stonehenge primarily as a stone circle, but it's part of a complex with numerous burial mounds and other structures."
+  },
+  {
+    "name": "Machu Picchu",
+    "location": {
+      "latitude": -13.1631,
+      "longitude": -72.5450
+    },
+    "description": "An ancient Incan city set high in the Andes Mountains.",
+    "image": "path_to_images/machu_picchu.jpg",
+    "fact": "Machu Picchu was never discovered by the Spanish during their conquest, which is why it remained intact until its rediscovery in the 20th century."
+  },
+  {
+    "name": "Colosseum",
+    "location": {
+      "latitude": 41.8902,
+      "longitude": 12.4924
+    },
+    "description": "A grand amphitheater in the center of Rome, Italy.",
+    "image": "path_to_images/colosseum.jpg",
+    "fact": "Contrary to popular belief, the Colosseum was not just a venue for gladiatorial games. It also hosted mock sea battles, animal hunts, and mythological drama plays."
+  },
+  {
+    "name": "Dinant",
+    "location": {
+      "latitude": 50.2605,
+      "longitude": 4.9122
+    },
+    "description": "A picturesque town along the Meuse River in Belgium.",
+    "image": "path_to_images/dinant.jpg",
+    "fact": "Dinant is the birthplace of Adolphe Sax, the inventor of the saxophone."
+  },
+  {
+    "name": "Tournai",
+    "location": {
+      "latitude": 50.6062,
+      "longitude": 3.3885
+    },
+    "description": "One of the oldest cities in Belgium, known for its rich history.",
+    "image": "path_to_images/tournai.jpg",
+    "fact": "Tournai boasts the Notre-Dame Cathedral, a UNESCO World Heritage site with five bell towers."
+  },
+  {
+    "name": "Atomium",
+    "location": {
+      "latitude": 50.8949,
+      "longitude": 4.3415
+    },
+    "description": "An iconic building in Brussels, originally constructed for the 1958 Brussels World's Fair.",
+    "image": "https://www.visit.brussels/content/dam/visitbrussels/images/b2c/plan-your-trip/balades-archi/balade-3/iStock-679559054.jpg",
+    "fact": "The Atomium depicts an iron crystal magnified 165 billion times, and you can actually enter the spheres!"
+  },
+  {
+    "name": "Manneken Pis",
+    "location": {
+      "latitude": 50.8455,
+      "longitude": 4.3500
+    },
+    "description": "A famous bronze statue of a young boy, an iconic symbol of Brussels' irreverent sense of humor.",
+    "image": "path_to_images/manneken_pis.jpg",
+    "fact": "The statue has been stolen and replaced several times, and it's a tradition to dress him in various costumes throughout the year."
+  },
+  {
+    "name": "Royal Palace of Brussels",
+    "location": {
+      "latitude": 50.8414,
+      "longitude": 4.3633
+    },
+    "description": "The official palace of the Belgian King and Queen, although it's not used as a royal residence.",
+    "image": "path_to_images/royal_palace.jpg",
+    "fact": "Every summer, the Royal Palace opens its doors to the public. It's a chance for visitors to explore the magnificent interiors and artworks."
+  },
+  {
+    "name": "Brussels Town Hall",
+    "location": {
+      "latitude": 50.8466,
+      "longitude": 4.3528
+    },
+    "description": "A gothic masterpiece located in the Grand-Place, it's one of the city's most opulent buildings.",
+    "image": "path_to_images/town_hall.jpg",
+    "fact": "The tower of the Town Hall is not centered on the building, and legend says that the architect jumped from the tower when he realized his mistake!"
+  },
+  {
+    "name": "Cinquantenaire Arch",
+    "location": {
+      "latitude": 50.8396,
+      "longitude": 4.4029
+    },
+    "description": "An impressive triumphal arch in the Parc du Cinquantenaire, commissioned by King Leopold II.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Arcade_du_Cinquantenaire_%28DSCF7405%29.jpg/610px-Arcade_du_Cinquantenaire_%28DSCF7405%29.jpg",
+    "fact": "The arch was completed in 1905, marking the 75th anniversary of Belgian independence."
+  },
+  {
+      "name": "Grand-Place",
+      "location": {
+        "latitude": 50.8466,
+        "longitude": 4.3528
+      },
+      "description": "The central square of Brussels and a UNESCO World Heritage site.",
+      "image": "path_to_images/grand_place.jpg",
+      "fact": "The square is known for its ornate guildhalls and its impressive Town Hall."
+    },
+    {
+      "name": "Atomium",
+      "location": {
+        "latitude": 50.8949,
+        "longitude": 4.3415
+      },
+      "description": "An iconic building in Brussels, constructed for the 1958 Brussels World's Fair.",
+      "image": "path_to_images/atomium.jpg",
+      "fact": "The Atomium represents an iron crystal magnified 165 billion times."
+    },
+    {
+      "name": "Manneken Pis",
+      "location": {
+        "latitude": 50.8455,
+        "longitude": 4.3500
+      },
+      "description": "A famous bronze statue of a young boy, representing the irreverent sense of humor of Brussels.",
+      "image": "path_to_images/manneken_pis.jpg",
+      "fact": "The statue is often dressed in various costumes, and it has a wardrobe of several hundred outfits."
+    },
+    {
+      "name": "Royal Palace of Brussels",
+      "location": {
+        "latitude": 50.8414,
+        "longitude": 4.3633
+      },
+      "description": "The official palace of the Belgian King and Queen.",
+      "image": "path_to_images/royal_palace.jpg",
+      "fact": "Though not used as a royal residence, it's opened to the public every summer."
+    },
+    {
+      "name": "Brussels Town Hall",
+      "location": {
+        "latitude": 50.8466,
+        "longitude": 4.3528
+      },
+      "description": "A gothic building located in the Grand-Place.",
+      "image": "path_to_images/town_hall.jpg",
+      "fact": "Its tower is notably not centered on the building."
+    },
+    {
+      "name": "Cinquantenaire Arch",
+      "location": {
+        "latitude": 50.8396,
+        "longitude": 4.4029
+      },
+      "description": "A triumphal arch in the Parc du Cinquantenaire.",
+      "image": "path_to_images/cinquantenaire_arch.jpg",
+      "fact": "It was commissioned by King Leopold II and completed in 1905."
+    },
+    {
+      "name": "Bruges Canals",
+      "location": {
+        "latitude": 51.2093,
+        "longitude": 3.2247
+      },
+      "description": "Picturesque canals running through the historic city of Bruges.",
+      "image": "path_to_images/bruges_canals.jpg",
+      "fact": "Bruges is often referred to as the 'Venice of the North' due to its beautiful canals."
+    },
+    {
+      "name": "Belfry of Ghent",
+      "location": {
+        "latitude": 51.0538,
+        "longitude": 3.7250
+      },
+      "description": "A medieval tower overlooking the city of Ghent.",
+      "image": "path_to_images/ghent_belfry.jpg",
+      "fact": "The belfry is the tallest in Belgium, standing at 91 meters high."
+    },
+    {
+      "name": "Leuven University Library",
+      "location": {
+        "latitude": 50.8776,
+        "longitude": 4.7041
+      },
+      "description": "A historic library in the city of Leuven.",
+      "image": "path_to_images/leuven_library.jpg",
+      "fact": "The library was rebuilt after World War I with donations from the United States."
+    },
+    {
+      "name": "Cathedral of Our Lady, Antwerp",
+      "location": {
+        "latitude": 51.2206,
+        "longitude": 4.4009
+      },
+      "description": "A stunning gothic cathedral in Antwerp.",
+      "image": "path_to_images/antwerp_cathedral.jpg",
+      "fact": "It took 170 years to build, from the 14th to the 16th centuries."
+    },
+    {
+      "name": "Bouillon Castle",
+      "location": {
+        "latitude": 49.7937,
+        "longitude": 5.0675
+      },
+      "description": "A medieval fortress in the town of Bouillon.",
+      "image": "path_to_images/bouillon_castle.jpg",
+      "fact": "The castle offers falconry shows for visitors."
+    },
+    {
+      "name": "Mardasson Memorial",
+      "location": {
+        "latitude": 50.0075,
+        "longitude": 5.7467
+      },
+      "description": "A monument honoring American soldiers in the Battle of the Bulge.",
+      "image": "path_to_images/mardasson_memorial.jpg",
+      "fact": "The memorial is shaped like a star, representing the homeland of the soldiers."
+    },
+    {
+      "name": "Horta Museum",
+      "location": {
+        "latitude": 50.8245,
+        "longitude": 4.3557
+      },
+      "description": "A museum dedicated to the famous Belgian architect Victor Horta.",
+      "image": "path_to_images/horta_museum.jpg",
+      "fact": "The museum is situated in Horta's former house and workshop, which are prime examples of Art Nouveau."
+    },
+  {
+    "name": "Liège-Guillemins Railway Station",
+    "location": {
+      "latitude": 50.6245,
+      "longitude": 5.5664
+    },
+    "description": "A major train station designed by the architect Santiago Calatrava.",
+    "image": "path_to_images/liege_station.jpg",
+    "fact": "The station's design features"
+  }
+  ]

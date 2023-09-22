@@ -1,9 +1,12 @@
 import * as React from 'react';
 import './homepage.css';
-
-export default function ButtonAppBar() {
+import Histroy from '../maps/history'
+import Navs from '../common/navbar'
+ function Home() {
     return (
-        <div className='containerr'>
+        <div>
+            <Navs />
+     <div className='containerr'>
             <div className='text-mid'>
                 <h1>Embark on a Global Journey..</h1>
                 <p >Travel Through Time, One Spot at a Time</p>
@@ -14,5 +17,10 @@ export default function ButtonAppBar() {
                 .
             </div>
         </div>
+            <Histroy/>
+
+        </div>
     );
 }
+
+export default Home;

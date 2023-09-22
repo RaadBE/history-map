@@ -1,8 +1,10 @@
 .containerr{
+    height: 100vh;
     display: flex;
     background-color: #F6FFDBFF;
     max-width: 90%;
     margin: 0 auto;
+    align-items: center;
 
 }
 .just{
