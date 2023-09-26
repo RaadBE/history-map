@@ -9,16 +9,31 @@ import Tabs from './poops'
 import mapData from '../mapsData.json'
 function Bigmap() {
     const { data, setData } = useContext(DataContext);
-    const [pop,setPop] = useState();
+    const [location, setLocation] = useState({ lat: 0, long: 0 });  // Using 0,0 as fake values
+    useEffect(() => {
+        function success(pos) {
+            const crd = pos.coords;
+            console.log("Your current position is:");
+            console.log(`Latitude : ${crd.latitude}`);
+            console.log(`Longitude: ${crd.longitude}`);
+            console.log(`More or less ${crd.accuracy} meters.`);
+            setLocation({ lat: crd.latitude, long: crd.longitude });
+        }
+
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error);
+    }, []);
 
 const test = () => {
     }
-    // const [Zooms,setzoomIn] = useState()
     useEffect(() => {
-        let map = L.map('map').setView([50.819051283509054, 4.353727734170263], 9)
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
-
-        if (data) {
+            console.log('corda::' + location.lat)
+            let map = L.map('map').setView([location.lat, location.long], 13)
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+            if (data) {
             data.map((pins, index) => {
                 let greenIcon = L.divIcon({
                     className: 'custom-div-icon',
