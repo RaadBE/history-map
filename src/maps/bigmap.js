@@ -7,6 +7,7 @@ import 'leaflet-search';
 import  {DataContext} from './DataContext'
 import Tabs from './poops'
 import mapData from '../mapsData.json'
+
 function Bigmap() {
     const { data, setData } = useContext(DataContext);
     const [location, setLocation] = useState({ lat: 0, long: 0 });  // Using 0,0 as fake values
@@ -44,11 +45,16 @@ const test = () => {
             });
                 L.marker([pins.location.latitude, pins.location.longitude], {icon: greenIcon}).addTo(map)
                     .bindPopup(`<div class="holder">
+           <IconButton>
+      <i className="fas fa-heart" />
+    </IconButton>
                <h1>${pins.name}</h1>
                <img src="${pins.image}">
                <p>${pins.description}</p>
                <p>${pins.fact}</p>
-           </div>`)
+               <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Take me there</button>
+               <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add to favourt</button>
+               </div>`)
             })
         }
         const test1 = [{}];
@@ -66,6 +72,7 @@ const test = () => {
                <img src="${imp.image}">
                <p>${imp.description}</p>
                <p>${imp.fact}</p>
+
            </div>`)
                 }
             });

@@ -8,7 +8,7 @@ function MyTabs() {
     return (
         <div className=' tabs-container shadow-lg'>
             <Tab.Group>
-                <Tab.List className=''>
+                <Tab.List className='pt-30 pb-1/2'>
                     <Tab className='w-1/2'>Trending</Tab>
                     <Tab className='w-1/2 '>Recent</Tab>
                 </Tab.List>
@@ -33,7 +33,7 @@ function MyTabs() {
                                    {list.name}
                                </h5>
                             <p className=' text-base pt-5 text-neutral-600 dark:text-neutral-200'>{list.description}</p>
-                               <hr className='h-2  mt-5 bg-amber-600'></hr>
+                               <hr className='h-0.5  mt-5 bg-black shadow-md	'></hr>
                                <p className='pt-5'>{list.fact}</p>
 
                            </div> : null
