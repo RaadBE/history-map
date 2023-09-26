@@ -32,15 +32,30 @@ function Bigmap() {
            </div>`)
             })
         }
-        const test1 = L.marker([50.852117057209014, 4.3592208980725164]).addTo(map)
-        test1.bindPopup('bigboos');
+        const test1 = [{}];
+        let marker;
 
+        const layerGroup = L.layerGroup().addTo(map);
+
+        if (data) {
+            data.forEach((imp, index) => {
+                if (imp.special_key) {
+                    // Create a new marker and add it to the layer group
+                    const marker = L.marker([imp.location.latitude, imp.location.longitude]).addTo(layerGroup);
+                    marker.bindPopup(`<div class="holder">
+               <h1>${imp.name}</h1>
+               <img src="${imp.image}">
+               <p>${imp.description}</p>
+               <p>${imp.fact}</p>
+           </div>`)
+                }
+            });
+        }
         map.on('zoomstart', function(e) {
             if (e.target._zoom > 12 ) {
-                test1.addTo(map);
+                layerGroup.addTo(map);
             }else {
-                test1.remove();
-
+                layerGroup.remove();
             }
         });
         new L.Control.Search({
