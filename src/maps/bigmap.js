@@ -9,6 +9,10 @@ import Tabs from './poops'
 import mapData from '../mapsData.json'
 function Bigmap() {
     const { data, setData } = useContext(DataContext);
+    const [pop,setPop] = useState();
+
+const test = () => {
+    }
     // const [Zooms,setzoomIn] = useState()
     useEffect(() => {
         let map = L.map('map').setView([50.819051283509054, 4.353727734170263], 9)
@@ -18,11 +22,11 @@ function Bigmap() {
             data.map((pins, index) => {
                 let greenIcon = L.divIcon({
                     className: 'custom-div-icon',
-                    html: `<div class="image-holder"><img src="${pins.image}"></div><div class="pin-tail"></div>`,
+                    html: `<div  class="image-holder"><img src="${pins.image}"></div><div class="pin-tail"></div>`,
                     iconSize: [38, 95],
                     iconAnchor: [22, 94],
                     popupAnchor: [-3, -76],
-                });
+            });
                 L.marker([pins.location.latitude, pins.location.longitude], {icon: greenIcon}).addTo(map)
                     .bindPopup(`<div class="holder">
                <h1>${pins.name}</h1>
@@ -38,10 +42,10 @@ function Bigmap() {
         const layerGroup = L.layerGroup().addTo(map);
 
         if (data) {
-            data.forEach((imp, index) => {
+            data.map((imp, index) => {
                 if (imp.special_key) {
                     // Create a new marker and add it to the layer group
-                    const marker = L.marker([imp.location.latitude, imp.location.longitude]).addTo(layerGroup);
+                    const marker = L.marker([imp.location.latitude, imp.location.longitude]).addTo(layerGroup)
                     marker.bindPopup(`<div class="holder">
                <h1>${imp.name}</h1>
                <img src="${imp.image}">
@@ -51,6 +55,10 @@ function Bigmap() {
                 }
             });
         }
+        map.on('popupopen', function(e) {
+            var marker = e.target;
+            console.log(marker)
+        });
         map.on('zoomstart', function(e) {
             if (e.target._zoom > 12 ) {
                 layerGroup.addTo(map);
@@ -74,7 +82,7 @@ function Bigmap() {
     }, [data]);
 
     return (
-        <div className='map-conainer'>
+        <div className='map-conainer shadow-sm	'>
                 <Tabs/>
             <div id="map" className="mainn-mapp"></div>
         </div>
