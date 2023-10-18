@@ -41,6 +41,7 @@ function Histroy() {
     }, [data]);
     return (
         <div className='map-conainer'>
+            <h1>how to use it </h1>
             <div id="map" className="main-map"></div>
 
         </div>
