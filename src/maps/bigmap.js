@@ -7,7 +7,7 @@ import 'leaflet-search';
 import { DataContext } from './DataContext';
 import Tabs from './poops';
 import {marker} from "leaflet/src/layer";
-
+const yes = '112';
 function Bigmap() {
     const {
         data,
