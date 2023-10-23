@@ -1,38 +1,83 @@
 import React, { useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
+import axios from 'axios';
 
 const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
+    const [locationLatitude, setLocationLatitude] = useState({
+        lat: '',
+        lng: ''
+    });
+
+    const [favorites, setFavorites] = useState(() => {
+        try {
+            const savedFavorites = localStorage.getItem("favorites");
+            return savedFavorites ? JSON.parse(savedFavorites) : [];
+        } catch (error) {
+            console.error("Error parsing favorites from local storage", error);
+            return [];
+        }
+    });
+
+    const addToFavorites = (item) => {
+        try {
+            const savedFavorites = localStorage.getItem("favorites");
+            const currentFavorites = savedFavorites ? JSON.parse(savedFavorites) : [];
+
+            const exists = currentFavorites.some(fav => fav.id === item.id);
+            if (!exists) {
+                const updatedFavorites = [...currentFavorites, item];
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+                setFavorites(updatedFavorites);
+            }
+        } catch (error) {
+            console.error("Error handling favorites", error);
+        }
+    };
+
 
     useEffect(() => {
-        fetch('/mapsData.json')  // Assume mapsData.json is in the public directory
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+        const fetchData = async () => {
+            const options = {
+                method: 'GET',
+                url: 'https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng',
+                params: {
+                    longitude: locationLatitude.lng,
+                    latitude: locationLatitude.lat,
+                    unit: 'km',
+                    currency: 'USD',
+                    lang: 'en_US'
+                },
+                headers: {
+                    'X-RapidAPI-Key': 'c0ddd6bb8amshc0000ee765acff8p120335jsn21125ecc4cad',
+                    'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
                 }
-                return response.json();
-            })
-            .then(data => {
-                setData(data);
-                console.log('data is hereee', data);
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);  // Log error to console
-            });
-    }, []);
+            };
 
-    const handleClick = (latitude, longitude) => {
-        const newData = {
-            location1: latitude,
-            location2: longitude,
+            try {
+                const response = await axios.request(options);
+                console.log(response.data);
+                setData(response.data);  // Assuming you want to set the fetched data to your state
+            } catch (error) {
+                console.error(error);
+            }
         };
-        setData(newData);
+
+        fetchData();
+    }, [locationLatitude]);
+
+
+    const handleLocationClick = (lat,lng) => {
+        setLocationLatitude({lat,lng});
     };
 
     const value = {
         data,
-        setData,
-        handleClick,
+        locationLatitude,
+        setLocationLatitude,// Only providing this combined object
+        handleLocationClick,
+        favorites,
+        addToFavorites
     };
 
     return (
