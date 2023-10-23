@@ -1,13 +1,11 @@
-
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import L from 'leaflet';
-import './bigmap.css'
+import './bigmap.css';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-search/dist/leaflet-search.min.css';
 import 'leaflet-search';
-import  {DataContext} from './DataContext'
-import Tabs from './poops'
-import mapData from '../mapsData.json'
+import { DataContext } from './DataContext';
+import Tabs from './poops';
 import {marker} from "leaflet/src/layer";
 
 function Bigmap() {
@@ -17,14 +15,13 @@ function Bigmap() {
         locationLatitude,
         setLocationLatitude,
     } = useContext(DataContext);
-    const [location, setLocation] = useState({ lat: 0, long: 0 });  // Using 0,0 as fake values
+    const [location, setLocation] = useState({ lat: 0, long: 0 });
+    const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
+    const [mapZoom, setMapZoom] = useState(13);
+
     useEffect(() => {
         function success(pos) {
             const crd = pos.coords;
-            console.log("Your current position is:");
-            console.log(`Latitude : ${crd.latitude}`);
-            console.log(`Longitude: ${crd.longitude}`);
-            console.log(`More or less ${crd.accuracy} meters.`);
             setLocation({ lat: crd.latitude, long: crd.longitude });
         }
 
@@ -35,24 +32,19 @@ function Bigmap() {
         navigator.geolocation.getCurrentPosition(success, error);
     }, []);
 
-    const test = () => {
-    }
     useEffect(() => {
-        console.log('corda::' + location.lat)
         let map = L.map('map', {
-            center: [51.505, -0.09],
-            zoom: 13
+            center: mapCenter,
+            zoom: mapZoom
         });
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
-
-
 
         if (data) {
             data?.data.map((pins, index) => {
                 if (pins.latitude && pins.longitude) {
                     let greenIcon = L.divIcon({
                         className: 'custom-div-icon',
-                        html: `<div  class="image-holder"><img src="${pins.image}"></div><div class="pin-tail"></div>`,
+                        html: `<div  class="image-holder"><img src="${pins.photo?.images?.thumbnail?.url}"></div><div class="pin-tail"></div>`,
                         iconSize: [38, 95],
                         iconAnchor: [22, 94],
                         popupAnchor: [-3, -76],
@@ -82,23 +74,25 @@ function Bigmap() {
             });
         }
 
-
         const layerGroup = L.layerGroup().addTo(map);
         if (data) {
             data?.data.map((imp, index) => {
                 if (imp.special_key && imp.location?.latitude && imp.location?.longitude) {
-                    // Create a new marker and add it to the layer group
                     const marker = L.marker([imp.location.latitude, imp.location.longitude]).addTo(layerGroup);
                     marker.bindPopup(`<div class="holder">
                <h1>${imp.name}</h1>
-                <img src="${imp?.photo?.images?.large?.url}">
+             <img src="${imp?.photo?.images?.large?.url}">
                <p>${imp.description}</p>
                <p>${imp.fact}</p>
-           </div>`);
+           </div>`)
+
                 }
             });
         }
-
+        map.on('moveend', function () {
+            setMapCenter(map.getCenter());
+            setMapZoom(map.getZoom());
+        });
         map.on('click',function (e){
             let lat = e.latlng.lat;
             let lng = e.latlng.lng;
@@ -107,7 +101,9 @@ function Bigmap() {
                 lng: lng
             })
         })
-
+        map.on('zoomend',function(e) {
+            console.log('zoomingis here',e.target.getZoom());
+        })
         map.on('popupopen', function(e) {
             var marker = e.target;
             console.log(marker)
@@ -132,7 +128,7 @@ function Bigmap() {
         return () =>{
             map.remove();
         }
-    }, []);
+    }, [data]);
 
     return (
         <div className='map-conainer shadow-sm	'>

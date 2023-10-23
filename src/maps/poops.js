@@ -5,6 +5,22 @@ import './tabs.css'
 function MyTabs() {
     const { data, setData } = useContext(DataContext);
     console.log(data);
+    // Check if data is an array before rendering
+    const renderData = (conditionFunc = () => true) => (
+        Array.isArray(data) && data.map((item, index) =>
+                conditionFunc(item) && (
+                    <div key={item.id || index}>
+                        <img className="rounded-t-lg" src={item.image} alt={item.name} />
+                        <h5 className="text-xl pt-5 font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                            {item.name}
+                        </h5>
+                        <p className='text-base pt-5 text-neutral-600 dark:text-neutral-200'>{item.description}</p>
+                        <hr className='h-0.5 mt-5 bg-black shadow-md'></hr>
+                        <p className='pt-5'>{item.description}</p>
+                    </div>
+                )
+        )
+    );
     return (
         <div className=' tabs-container shadow-lg'>
             <Tab.Group>
@@ -14,31 +30,26 @@ function MyTabs() {
                 </Tab.List>
                 <Tab.Panels>
                     <Tab.Panel>
-                        {/* Check that data is not null and that it is an array before calling map */}
-                        {Array.isArray(data) ? data.map((list, index) => (
-                            list.special_key ? <div key={index}>{list.name}</div> : null
-                        )) : null}
+                        {Array.isArray(data) && data.data.map((list, index) => (
+                            <div key={index}>{list.name}</div>
+                        ))}
                     </Tab.Panel>
                     <Tab.Panel>
-                        {Array.isArray(data) ? data.map((list,index) => (
-                           !list.special_key ? <div className=
-                            'block rounded-lg p-4 mb-3.5 no-scrollbar  mytab  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700w'
-                           key={index}>
-                               <img
-                                   className="rounded-t-lg"
-                                   src={list.image}
-                               alt="" />
-                               <h5
-                                   className=" text-xl  pt-5 font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                   {list.name}
-                               </h5>
-                            <p className=' text-base pt-5 text-neutral-600 dark:text-neutral-200'>{list.description}</p>
-                               <hr className='h-0.5  mt-5 bg-black shadow-md	'></hr>
-                               <p className='pt-5'>{list.fact}</p>
-
-                           </div> : null
-            )): null}
+                        {Array.isArray(data?.data) && data?.data.map((list, index) => (
+                            <div
+                                className='block rounded-lg p-4 mb-3.5 no-scrollbar mytab bg-white shadow-[0px 2px 15px -3px rgba(0,0,0,0.07), 0px 10px 20px -2px rgba(0,0,0,0.04)] dark:bg-neutral-700'
+                                key={index}
+                            >
+                                <img className="rounded-t-lg" src={list.photo?.images?.large?.url} alt={list.name} />
+                                <h5 className="text-xl pt-5 font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                                    {list.name}
+                                </h5>
+                                <p className='text-base pt-5 text-neutral-600 dark:text-neutral-200'>{list.description}</p>
+                                <hr className='h-0.5 mt-5 bg-black shadow-md'></hr>
+                            </div>
+                        ))}
                     </Tab.Panel>
+
                 </Tab.Panels>
             </Tab.Group>
         </div>
