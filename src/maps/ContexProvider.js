@@ -5,7 +5,7 @@ const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('/mapsData.json')  // Assume mapsData.json is in the public directory
+        fetch('/mapsData.json')  
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
