@@ -16,7 +16,7 @@ function App() {
                     <Routes>
                         <Route path='/' element={<Home/>} />
                         <Route path='/blog' element={<Bigmap/>}/>
-                        <Route path='/test1' element={<Test/>}/>
+                        <Route path='/test1' element={<testing/>}/>
                     </Routes>
                     <Test/>  {/* You might want to include this inside the Routes */}
                 </div>

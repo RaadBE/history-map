@@ -7,7 +7,6 @@ import 'leaflet-search';
 import { DataContext } from './DataContext';
 import Tabs from './poops';
 import {marker} from "leaflet/src/layer";
-const yes = '112';
 function Bigmap() {
     const {
         data,
@@ -131,7 +130,7 @@ function Bigmap() {
     }, [data]);
 
     return (
-        <div className='map-conainer shadow-sm	'>
+        <div className='map-conainer shadow-sm 	'>
             <Tabs/>
             <div id="map" className="mainn-mapp"></div>
         </div>

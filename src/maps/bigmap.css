@@ -48,3 +48,46 @@
     z-index: -1;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
+/* This media query applies styles for screens with a width of 600px or less */
+@media (min-width: 1025px) {
+    .map-container {
+        flex-direction: row; /* Side by side for larger screens */
+    }
+
+    .main-map {
+        width: 65%; /* Adjust width as needed */
+        height: 900px; /* Full height for larger screens */
+    }
+
+    .tabs-container {
+        width: 35%; /* Adjust width as needed */
+    }
+}
+
+/* Media query for medium screens (tablets in portrait/landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .map-container{
+        flex-direction: column-reverse;
+    }
+    .main-map {
+        height: 600px; /* Adjust height for medium screens */
+    }
+}
+
+/* Media query for small screens (large phones) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .main-map {
+        height: 400px; /* Adjust height for small screens */
+    }
+}
+
+/* Media query for extra small screens (small phones) */
+@media (max-width: 480px) {
+    .map-conainer{
+        flex-direction: column-reverse;
+
+    }
+    .main-map {
+        height: 300px; /* Adjust height for extra small screens */
+    }
+}

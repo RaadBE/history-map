@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { DataContext } from './DataContext';
 import axios from 'axios';
 
+
+const connect = process.env.REACT_APP_API_KEY
 const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
     const [locationLatitude, setLocationLatitude] = useState({
@@ -38,34 +40,37 @@ const DataProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const options = {
-                method: 'GET',
-                url: 'https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng',
-                params: {
-                    longitude: locationLatitude.lng,
-                    latitude: locationLatitude.lat,
-                    unit: 'km',
-                    currency: 'USD',
-                    lang: 'en_US'
-                },
-                headers: {
-                    'X-RapidAPI-Key': 'c0ddd6bb8amshc0000ee765acff8p120335jsn21125ecc4cad',
-                    'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
-                }
-            };
+            if (locationLatitude.lat && locationLatitude.lng) {
+                const options = {
+                    method: 'GET',
+                    url: `${process.env.REACT_APP_URL_KEY}`,
+                    params: {
+                        longitude: locationLatitude.lng,
+                        latitude: locationLatitude.lat,
+                        lunit: 'km',
+                        currency: 'USD',
+                        lang: 'en_US'
+                    },
+                    headers: {
+                        'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
+                        'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+                    }
+                };
 
-            try {
-                const response = await axios.request(options);
-                console.log(response.data);
-                setData(response.data);  // Assuming you want to set the fetched data to your state
-            } catch (error) {
-                console.error(error);
+                try {
+                    const response = await axios.request(options);
+                    setData(response.data); // Don't forget to set the data
+                    console.log(response.data);
+                } catch (error) {
+                    console.error(error);
+                }
             }
         };
 
-        fetchData();
-    }, [locationLatitude]);
-
+        if (locationLatitude.lat && locationLatitude.lng) {
+            fetchData();
+        }
+    }, [locationLatitude]); // This effect runs when `locationLatitude` changes
 
     const handleLocationClick = (lat,lng) => {
         setLocationLatitude({lat,lng});
